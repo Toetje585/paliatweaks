@@ -26,7 +26,7 @@ AllowAsyncRenderThreadUpdatesEditor=1
 
 **r.GTSyncType=0**
 
-This only helps if the user has vsync enabled, disabling Vsync removes the need for messing with LowLatency mode entirely so users without vsync should set this to "0"
+This only helps if the user has vsync enabled, disabling Vsync removes the need for messing with LowLatency mode entirely so users without vsync should set this to "0". This mode allows lower input latency for vsync users.
 
 In all my games I limit the fps in the engine hence disable vsync ingame! 
 In Palia this can be done trough editing GameUserSettings.ini by adding this vallue (Example for a 120hz screen with freesync enabled)
