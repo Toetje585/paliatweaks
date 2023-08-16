@@ -22,7 +22,7 @@ AllowAsyncRenderThreadUpdatesEditor=1
 ```
 
 
-Options explained: Low-latency frame syncing https://docs.unrealengine.com/4.27/en-US/SharingAndReleasing/LowLatencyFrameSyncing/
+- Options explained: Low-latency frame syncing https://docs.unrealengine.com/4.27/en-US/SharingAndReleasing/LowLatencyFrameSyncing/
 
 For r.Streaming.PoolSize, set the value based on the (GPU) videomemory.
 
