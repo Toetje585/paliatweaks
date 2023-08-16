@@ -8,8 +8,8 @@ It could resolve unexpected and unexplainable stutters.
 ```
 [SystemSettings]
 r.bForceCPUAccessToGPUSkinVerts=True
-r.GTSyncType=1
-r.OneFrameThreadLag=1
+r.GTSyncType=0
+r.OneFrameThreadLag=0
 r.FinishCurrentFrame=0
 r.TextureStreaming=1
 r.Streaming.PoolSize=3072
@@ -21,8 +21,19 @@ AllowAsyncRenderThreadUpdatesDuringGamethreadUpdates=1
 AllowAsyncRenderThreadUpdatesEditor=1
 ```
 
+# Options explained
 
-- Options explained: Low-latency frame syncing https://docs.unrealengine.com/4.27/en-US/SharingAndReleasing/LowLatencyFrameSyncing/
+
+**r.GTSyncType=0**
+
+This only helps if the user has vsync enabled, disabling Vsync removes the need for messing with LowLatency mode entirely so users without vsync should set this to "0"
+
+In all my games I limit the fps in the engine hence disable vsync ingame! 
+In Palia this can be done trough editing GameUserSettings.ini by adding this vallue (Example for a 120hz screen with freesync enabled)
+
+```
+FrameRateLimit=117.000000
+```
 
 For r.Streaming.PoolSize, set the value based on the (GPU) videomemory.
 
