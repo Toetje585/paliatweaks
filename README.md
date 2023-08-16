@@ -30,4 +30,4 @@ For r.Streaming.PoolSize, set the value based on the (GPU) videomemory.
 8GB: 3072
 10GB: 4096
 12GB: 5120
->12GB: 6144```
+>12GB: 6144
