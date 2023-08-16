@@ -2,7 +2,7 @@
 A repo containing usefull Unreal Engine tweaks to improve Palia
 
 
-Editing Engine.ini in "C:\Users\%UserName%\AppData\Local\Palia\Saved\Config\WindowsClient" will increase overall performance across all kinds of systems. 
+Editing **Engine.ini** in "C:\Users\%UserName%\AppData\Local\Palia\Saved\Config\WindowsClient" will increase overall performance across all kinds of systems. 
 It could resolve unexpected and unexplainable stutters.
 
 ```
@@ -34,6 +34,12 @@ In Palia this can be done trough editing GameUserSettings.ini by adding this val
 ```
 FrameRateLimit=117.000000
 ```
+
+**r.OneFrameThreadLag=0**
+
+Players with minimum requirements or an old system can enable this setting. That’s because it offers additional FPS at the cost of some input lag, this is not a competive game by any means so enabling this on older systems might help you out.
+
+**r.Streaming.PoolSize=**
 
 For r.Streaming.PoolSize, set the value based on the (GPU) videomemory.
 
