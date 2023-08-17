@@ -8,12 +8,10 @@ It could resolve unexpected and unexplainable stutters.
 ```
 [SystemSettings]
 r.bForceCPUAccessToGPUSkinVerts=True
-r.GTSyncType=0
+r.GTSyncType=1
 r.OneFrameThreadLag=0
 r.FinishCurrentFrame=0
-r.TextureStreaming=1
-r.Streaming.PoolSize=3072
-r.Streaming.LimitPoolSizeToVRAM=1
+r.TextureStreaming=0
 
 [ConsoleVariables]
 AllowAsyncRenderThreadUpdates=1
