@@ -1,43 +1,24 @@
 # paliatweaks
 A repo containing usefull Unreal Engine tweaks to improve Palia
 
+- Reduce game stutters across all kinds of systems
 
-Editing **Engine.ini** in "C:\Users\%UserName%\AppData\Local\Palia\Saved\Config\WindowsClient" will increase overall performance across all kinds of systems. 
-It could resolve unexpected and unexplainable stutters.
+Editing **Engine.ini**
 
 ```
 [SystemSettings]
-r.bForceCPUAccessToGPUSkinVerts=True
-r.GTSyncType=1
-r.OneFrameThreadLag=0
-r.FinishCurrentFrame=0
-r.TextureStreaming=0
-
-[ConsoleVariables]
-AllowAsyncRenderThreadUpdates=1
-AllowAsyncRenderThreadUpdatesDuringGamethreadUpdates=1
-AllowAsyncRenderThreadUpdatesEditor=1
+D3D12.PSO.DiskCache=1                   ; Peformance tweak Pipeline State Objects (PSOs), to change GPU states more quickly.
+D3D12.PSO.DriverOptimizedDiskCache=1    ; Peformance tweak
+r.TextureStreaming=1                    ; (1) Enable Texture Streaming / (0) Disable texture streaming.
+r.Streaming.PoolSize=2048               ; 2048,4096,5120,6144
+r.ShaderPipelineCache.Enabled=1         ; which allows the pipeline cache to load existing data from disk and precompile it.
+r.ShaderPipelineCache.StartupMode=3     ; Compile collected shaders before game starts
 ```
 
 # Options explained
 
-
-**r.GTSyncType=0**
-
-This only helps if the user has vsync enabled, disabling Vsync removes the need for messing with LowLatency mode entirely so users without vsync should set this to "0". This mode allows lower input latency for vsync users.
-
-In all my games I limit the fps in the engine hence disable vsync ingame! 
-In Palia this can be done trough editing GameUserSettings.ini by adding this vallue (Example for a 120hz screen with freesync enabled)
-
-```
-FrameRateLimit=117.000000
-```
-
-**r.OneFrameThreadLag=0**
-
-Players with minimum requirements or an old system can enable this setting. That’s because it offers additional FPS at the cost of some input lag, this is not a competive game by any means so enabling this on older systems might help you out.
-
-**r.Streaming.PoolSize=**
+The texture streaming system, or texture streamer, is the part of the engine responsible for increasing and decreasing the resolution of each texture. This enables you to have good visual quality while managing the available memory efficiently.
+especially for low/mid range gpu's this is usefull. 
 
 For r.Streaming.PoolSize, set the value based on the (GPU) videomemory.
 
@@ -45,4 +26,20 @@ For r.Streaming.PoolSize, set the value based on the (GPU) videomemory.
 8GB: 3072
 10GB: 4096
 12GB: 5120
->12GB: 6144
+>12GB: 6144 or set r.TextureStreaming=0 (Load all high ress textures into gpu memory and disable texture streaming)
+
+**Load all textures in memory, only for gpu's that have more then 12GB of vram:**
+
+r.TextureStreaming=0
+r.Streaming.PoolSize=0
+
+```
+
+Editing **GameUserSettings.ini**
+
+If you use gsync or freesync make sure to disable vsync and set the FrameRateLimit (3) frames below the monitors refreshrate eg for a 120hz display it would be 117.
+
+```
+FrameRateLimit=117.000000
+```
+
